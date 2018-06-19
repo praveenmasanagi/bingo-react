@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 50px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.ticketsContainer {
+  padding: 0 220px;
+}
+
+.ticket {
+  border: 1px solid red;
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+  float: left;
+}
+
+.tile {
+  padding: 10px;
+}
+
+.crossed {
+  text-decoration: line-through;
+  background: aquamarine;
+}
+
+.previousBall {
+  padding: 10px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.bingo {
+    animation: blinker 1s linear infinite;
+}
