@@ -12,7 +12,7 @@ class App extends Component {
       second : [],
       third : [],
       fourth : [],
-      newNumber : "",
+      newNumber : 0,
       randomArr : [],
       previousBalls : []
     }
@@ -68,28 +68,45 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Bingo</h1>
-        </header>
-        <div className="newNumber">
-          <h3 className="App-title">{ this.state.newNumber }</h3>
-          <div>
-          <span className="previousBall">Previous Balls</span>
-            {
-              this.state.previousBalls.map(function(value, index) {
-                return (
-                  <span className="previousBall" key={ index }>{ value }</span>
-                )
-              }, this)
-            }
-          </div>
-          <button onClick={ this.getNewNumber } >Get new number</button>
-        </div>
         <div className="ticketsContainer">
-          <Ticket ticketContent={ this.state.first }/>
-          <Ticket ticketContent={ this.state.second }/>
-          <Ticket ticketContent={ this.state.third }/>
-          <Ticket ticketContent={ this.state.fourth }/>
+          <div className="titleContainer">
+            <h3>Bingo</h3>
+          </div>
+          <div className="header">
+            <div className="newNumber">
+              {
+                this.state.newNumber !== 0 ?
+                  <div className="newNumberContainer">
+                    <span className="lastBallText">Last Ball</span>
+                    <span className="lastNumber">{ this.state.newNumber }</span>
+                  </div>
+                : null
+              }
+              <button onClick={ this.getNewNumber } className={"getNewNumberButton " + (this.state.newNumber !== 0 ? 'reducedMargin' : '')}>New Number</button>
+            </div>
+            <div className="previousNumbers">
+              {
+                this.state.previousBalls.length > 0 ?
+                  <p className="previousBallText">PREVIOUS BALLS</p>
+                : null
+              }
+              {
+                this.state.previousBalls.map(function(value, index) {
+                  return (
+                    <span className="previousBall" key={ index }>{ value }</span>
+                  )
+                }, this)
+              }
+            </div>
+          </div>
+          <div className="ticketsRow">
+            <Ticket ticketContent={ this.state.first }/>
+            <Ticket ticketContent={ this.state.second }/>
+          </div>
+          <div className="ticketsRow">
+            <Ticket ticketContent={ this.state.third }/>
+            <Ticket ticketContent={ this.state.fourth }/>
+          </div>
         </div>
       </div>
     );

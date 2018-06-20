@@ -1,12 +1,11 @@
 .App {
   text-align: center;
+  font-family: sans-serif;
+  font-weight: 100;
 }
 
-.App-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
+.header {
+  padding: 15px;
 }
 
 .App-title {
@@ -18,26 +17,45 @@
 }
 
 .ticketsContainer {
-  padding: 0 220px;
+  background: #e1e6eb;
+  display: inline-block;
+}
+
+.ticketsRow {
+  background: #eef0f5;
+  display: inline-block;
+  padding-top: 20px;
+}
+
+.ticketsRow:nth-of-type(odd) .ticket {
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.ticketsRow:nth-of-type(even) .ticket {
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+table {
+  background: #dadada;
+  border-spacing: 1px;
+  color: #626262;
 }
 
 .ticket {
-  border: 1px solid red;
-  width: 200px;
   margin: 10px;
   padding: 10px;
-  border-collapse: separate;
-  border-spacing: 10px 5px;
-  float: left;
 }
 
 .tile {
-  padding: 10px;
+  padding: 20px;
+  background: white;
 }
 
 .crossed {
-  text-decoration: line-through;
-  background: aquamarine;
+  background: #0070ba;
+  color: #FFF;
 }
 
 .previousBall {
@@ -52,4 +70,100 @@
 
 .bingo {
     animation: blinker 1s linear infinite;
+}
+
+button {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  -webkit-appearance: button;
+  cursor: pointer;
+  font-weight: 100;
+  margin-top: 20px;
+}
+
+.newNumber button {
+  margin-top: 0;
+}
+
+.lastBallText {
+  padding-right: 30px;
+}
+
+.lastNumber {
+  border: 2px solid #0070ba;
+  padding: 10px 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  color: #0070ba;
+  background-color: #fff;
+  font-weight: 900;
+}
+
+.previousBall {
+  padding: 7px 15px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: .25rem;
+  color: #626262;
+  background-color: #fafafa;
+  font-weight: 600;
+  margin: 0 10px 0 0;
+}
+
+.newNumber {
+  display: inline-block;
+  width: 50%;
+  text-align: left;
+}
+
+.previousNumbers {
+  display: inline-block;
+  width: 40%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.previousBallText {
+  font-size: 10px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.newNumberContainer {
+  display: inline-block;
+}
+
+.getNewNumberButton {
+  background-color: #1e434c;
+  border-color: #1e434c;
+  margin-left: 162px;
+}
+
+.reducedMargin {
+  margin-left: 10px;
+}
+
+.titleContainer {
+  background: #8596a1;
+}
+
+.titleContainer h3 {
+  margin: 0;
+  padding: 10px;
 }

@@ -22,7 +22,7 @@ export default class Ticket extends React.Component {
 		console.log("Submit Ticket");
 		var qs = require('qs');
 		if(this.state.dataCrossed.length !== 25){
-			alert("All the values are not crossed");
+			alert("You can't win Bingo without crossing all boxes!");
 		} else {
 		    Axios({
 		      method: 'get',
@@ -40,7 +40,7 @@ export default class Ticket extends React.Component {
 					classes : "tile bingo"
 				});
 		      } else {
-		      	alert("False bingo claim");
+		      	alert("OOPS! You must have crossed some box by mistake!");
 				self.setState({
 					classes : "ticket"
 				});		      	
@@ -83,7 +83,7 @@ export default class Ticket extends React.Component {
 							: null
 						}
 					</table>
-					<button onClick={ this.submitTicket }>Submit</button>
+					<button onClick={ this.submitTicket }>Submit Ticket</button>
 				</div>);
 	}
 }
