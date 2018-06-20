@@ -34,11 +34,12 @@ export default class Ticket extends React.Component {
        		    return qs.stringify(params, {arrayFormat: 'repeat'})
     		  }
 		    }).then(function(response){
-		      console.log("checkBingo was success ",response.data.isBingo);
 		      if(response.data.isBingo) {
 				self.setState({
-					classes : "tile bingo"
+					classes : "ticket bingo"
 				});
+				document.getElementById("App").className = "App bingoBackground";
+				alert("Congratulations! You have won!");
 		      } else {
 		      	alert("OOPS! You must have crossed some box by mistake!");
 				self.setState({
