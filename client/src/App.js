@@ -18,33 +18,30 @@ class App extends Component {
     }
     
     //Events Binding
-    this.getTickets = this.getTickets.bind(this);
     this.getNewNumber = this.getNewNumber.bind(this);
     this.getRandomTickets = this.getRandomTickets.bind(this);
   }
 
   componentDidMount() {
-    this.getTickets();
+    this.getRandomTickets();
   }
 
   //Events
-  getTickets() {
-    this.setState({
-        first : this.getRandomTickets(),
-        second : this.getRandomTickets(),
-        third : this.getRandomTickets(),
-        fourth : this.getRandomTickets()
-    });
-  }
-
   getRandomTickets() {
-    let tempArray = [];
-    while(tempArray.length < 25){
-        let randomnumber = Math.floor(Math.random()*100) + 1;
-        if(tempArray.indexOf(randomnumber) > -1) continue;
-        tempArray[tempArray.length] = randomnumber;
-    }
-    return tempArray;
+    let self = this;
+    Axios({
+      method: 'get',
+      url : "/api/getTickets"
+    }).then(function(response){
+      self.setState({
+        first : response.data.firstTicket,
+        second : response.data.secondTicket,
+        third : response.data.thirdTicket,
+        fourth : response.data.fourthTicket
+      })
+    }).catch(function(error) {
+      console.log('getTicket was failure',error);
+    });
   }
 
   getNewNumber() {
